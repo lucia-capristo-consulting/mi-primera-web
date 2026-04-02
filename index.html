@@ -202,6 +202,40 @@
             box-shadow: 0 6px 25px rgba(212, 168, 67, 0.4);
         }
 
+        /* ===== BARRA DE ESTADÍSTICAS ===== */
+        .stats-bar {
+            background: #1a365d;
+            padding: 2.5rem 2rem;
+        }
+
+        .stats-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .stats-bar-item {
+            text-align: center;
+        }
+
+        .stats-bar-numero {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #d4a843;
+            line-height: 1;
+        }
+
+        .stats-bar-texto {
+            display: block;
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
         /* ===== SECCIONES GENERALES ===== */
         .seccion {
             padding: 6rem 2rem;
@@ -632,6 +666,18 @@
                 display: flex;
             }
 
+            .stats-bar-container {
+                gap: 2rem;
+            }
+
+            .stats-bar-numero {
+                font-size: 1.8rem;
+            }
+
+            .stats-bar-texto {
+                font-size: 0.8rem;
+            }
+
             .hero {
                 padding: 8rem 1.5rem 4rem;
             }
@@ -691,9 +737,27 @@
     <!-- HERO -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>Impulsamos el crecimiento<br><span>de tu empresa.</span></h1>
+            <h1>Tu socio estratégico para el<br><span>crecimiento empresarial.</span></h1>
             <p>Consultoría estratégica en optimización de procesos para empresas que quieren crecer de forma inteligente.</p>
             <a href="#contacto" class="btn-principal">Solicita tu diagnóstico gratuito</a>
+        </div>
+    </section>
+
+    <!-- BARRA DE ESTADÍSTICAS -->
+    <section class="stats-bar">
+        <div class="stats-bar-container">
+            <div class="stats-bar-item">
+                <span class="stats-bar-numero">15+</span>
+                <span class="stats-bar-texto">Años de Experiencia</span>
+            </div>
+            <div class="stats-bar-item">
+                <span class="stats-bar-numero">200+</span>
+                <span class="stats-bar-texto">Empresas Transformadas</span>
+            </div>
+            <div class="stats-bar-item">
+                <span class="stats-bar-numero">98%</span>
+                <span class="stats-bar-texto">Clientes Satisfechos</span>
+            </div>
         </div>
     </section>
 
