@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría Estratégica Meridian | Optimización de Procesos Empresariales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul: #1a365d;
+            --azul-claro: #2a4a7f;
+            --dorado: #2d8a4e;
+            --dorado-hover: #24703f;
+            --blanco: #ffffff;
+            --gris-fondo: #f7f9fc;
+            --gris-texto: #555555;
+            --sombra: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ===== NAVEGACIÓN ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--azul);
+            padding: 0 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: var(--blanco);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--dorado);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--dorado);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--blanco);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--blanco);
+            transition: 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 50%, #1e4070 100%);
+            color: var(--blanco);
+            padding: 10rem 2rem 6rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            color: var(--dorado);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn-principal {
+            display: inline-block;
+            background: var(--dorado);
+            color: var(--azul);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-principal:hover {
+            background: var(--dorado-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 168, 67, 0.4);
+        }
+
+        /* ===== SECCIONES GENERALES ===== */
+        .seccion {
+            padding: 6rem 2rem;
+        }
+
+        .seccion-titulo {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .seccion-titulo h2 {
+            font-size: 2.2rem;
+            color: var(--azul);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .seccion-titulo p {
+            color: var(--gris-texto);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .linea-dorada {
+            width: 60px;
+            height: 3px;
+            background: var(--dorado);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== SERVICIOS ===== */
+        .servicios {
+            background: var(--gris-fondo);
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .servicio-card {
+            background: var(--blanco);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+            border-top-color: var(--dorado);
+        }
+
+        .servicio-icono {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .servicio-card h3 {
+            font-size: 1.3rem;
+            color: var(--azul);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .servicio-card p {
+            color: var(--gris-texto);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== SOBRE NOSOTROS ===== */
+        .sobre-nosotros-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .sobre-texto h3 {
+            font-size: 1.6rem;
+            color: var(--azul);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .sobre-texto p {
+            color: var(--gris-texto);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--gris-fondo);
+            border-radius: 12px;
+        }
+
+        .stat-numero {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dorado);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-texto {
+            font-size: 0.85rem;
+            color: var(--gris-texto);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* ===== TESTIMONIOS ===== */
+        .testimonios {
+            background: var(--gris-fondo);
+        }
+
+        .testimonios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonio-card {
+            background: var(--blanco);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            position: relative;
+        }
+
+        .testimonio-card::before {
+            content: '\201C';
+            font-family: 'Montserrat', sans-serif;
+            font-size: 5rem;
+            color: var(--dorado);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonio-texto {
+            font-style: italic;
+            color: var(--gris-texto);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-size: 0.95rem;
+        }
+
+        .testimonio-autor {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonio-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .testimonio-info strong {
+            display: block;
+            color: var(--azul);
+            font-size: 0.95rem;
+        }
+
+        .testimonio-info span {
+            font-size: 0.8rem;
+            color: var(--gris-texto);
+        }
+
+        /* ===== CONTACTO ===== */
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contacto-info h3 {
+            font-size: 1.5rem;
+            color: var(--azul);
+            margin-bottom: 1rem;
+        }
+
+        .contacto-info p {
+            color: var(--gris-texto);
+            margin-bottom: 2rem;
+        }
+
+        .contacto-dato {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contacto-dato-icono {
+            width: 45px;
+            height: 45px;
+            background: var(--gris-fondo);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--dorado);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .contacto-dato strong {
+            display: block;
+            color: var(--azul);
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+
+        .contacto-dato span {
+            color: var(--gris-texto);
+            font-size: 0.9rem;
+        }
+
+        .formulario {
+            background: var(--gris-fondo);
+            padding: 2.5rem;
+            border-radius: 12px;
+        }
+
+        .form-grupo {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-grupo label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--azul);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-grupo input,
+        .form-grupo textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #dde2e8;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            background: var(--blanco);
+        }
+
+        .form-grupo input:focus,
+        .form-grupo textarea:focus {
+            outline: none;
+            border-color: var(--dorado);
+            box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.15);
+        }
+
+        .form-grupo textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-enviar {
+            background: var(--dorado);
+            color: var(--azul);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-enviar:hover {
+            background: var(--dorado-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 168, 67, 0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--azul);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--blanco);
+        }
+
+        .footer-logo span {
+            color: var(--dorado);
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+        }
+
+        .footer-redes {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-redes a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .footer-redes a:hover {
+            background: var(--dorado);
+            border-color: var(--dorado);
+            color: var(--azul);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .servicios-grid,
+            .testimonios-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .sobre-nosotros-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--azul);
+                flex-direction: column;
+                padding: 1rem 2rem 2rem;
+                gap: 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                padding: 0.7rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .seccion {
+                padding: 4rem 1.5rem;
+            }
+
+            .seccion-titulo h2 {
+                font-size: 1.7rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .stat-numero {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">MERIDIAN<span>.</span></a>
+            <button class="nav-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#servicios" onclick="this.closest('.nav-links').classList.remove('active')">Servicios</a></li>
+                <li><a href="#nosotros" onclick="this.closest('.nav-links').classList.remove('active')">Nosotros</a></li>
+                <li><a href="#testimonios" onclick="this.closest('.nav-links').classList.remove('active')">Testimonios</a></li>
+                <li><a href="#contacto" onclick="this.closest('.nav-links').classList.remove('active')">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Impulsamos el crecimiento<br><span>de tu empresa.</span></h1>
+            <p>Consultoría estratégica en optimización de procesos para empresas que quieren crecer de forma inteligente.</p>
+            <a href="#contacto" class="btn-principal">Solicita tu diagnóstico gratuito</a>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="seccion servicios">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>Nuestros Servicios</h2>
+                <p>Soluciones integrales para impulsar el crecimiento de tu empresa</p>
+                <div class="linea-dorada"></div>
+            </div>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icono">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    </div>
+                    <h3>Optimización de Procesos</h3>
+                    <p>Analizamos y rediseñamos tus procesos operativos para eliminar desperdicios y maximizar la eficiencia.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icono">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Transformación Digital</h3>
+                    <p>Te acompañamos en la digitalización de tu negocio con herramientas prácticas y formación de tu equipo.</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="servicio-icono">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Planificación Estratégica</h3>
+                    <p>Diseñamos la hoja de ruta que tu empresa necesita para alcanzar sus objetivos a 3 y 5 años.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" class="seccion">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>Sobre Nosotros</h2>
+                <p>Experiencia, compromiso y resultados medibles</p>
+                <div class="linea-dorada"></div>
+            </div>
+            <div class="sobre-nosotros-content">
+                <div class="sobre-texto">
+                    <h3>Más de 15 años transformando empresas</h3>
+                    <p>En Consultoría Estratégica Meridian llevamos más de 15 años ayudando a empresas de todos los tamaños a optimizar sus operaciones y alcanzar su máximo potencial. Nuestro enfoque combina metodologías probadas con una visión innovadora adaptada a cada cliente.</p>
+                    <p>Contamos con un equipo de consultores senior con amplia experiencia en industria, que entiende los retos reales del día a día empresarial. No ofrecemos soluciones genéricas: diseñamos estrategias a medida que generan impacto tangible desde el primer mes.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-numero">15+</span>
+                        <span class="stat-texto">Años de experiencia</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-numero">200+</span>
+                        <span class="stat-texto">Empresas transformadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-numero">98%</span>
+                        <span class="stat-texto">Clientes satisfechos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="seccion testimonios">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>Resultados reales de empresas que confiaron en nosotros</p>
+                <div class="linea-dorada"></div>
+            </div>
+            <div class="testimonios-grid">
+                <div class="testimonio-card">
+                    <p class="testimonio-texto">"Gracias a Meridian redujimos nuestros tiempos de producción un 35% en solo seis meses. Su equipo entendió nuestro negocio desde el primer día y nos propuso mejoras que nunca habríamos visto por nuestra cuenta."</p>
+                    <div class="testimonio-autor">
+                        <div class="testimonio-avatar">CR</div>
+                        <div class="testimonio-info">
+                            <strong>Carlos Ruiz</strong>
+                            <span>Director de Operaciones, Logística Ibérica S.L.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <p class="testimonio-texto">"La transformación digital que lideraron en nuestra empresa fue impecable. Pasamos de gestionar todo en hojas de cálculo a tener un sistema integrado que nos ahorra más de 20 horas semanales."</p>
+                    <div class="testimonio-autor">
+                        <div class="testimonio-avatar">MF</div>
+                        <div class="testimonio-info">
+                            <strong>María Fernández</strong>
+                            <span>CEO, Distribuciones Alcántara</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <p class="testimonio-texto">"Contratamos a Meridian para definir nuestro plan estratégico a cinco años y el resultado superó todas nuestras expectativas. Hoy facturamos un 60% más y tenemos una hoja de ruta clara."</p>
+                    <div class="testimonio-autor">
+                        <div class="testimonio-avatar">JP</div>
+                        <div class="testimonio-info">
+                            <strong>Javier Peña</strong>
+                            <span>Fundador, Grupo Tecnova Industrial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>Contacta con nosotros</h2>
+                <p>Solicita tu diagnóstico gratuito y descubre cómo podemos ayudarte</p>
+                <div class="linea-dorada"></div>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>Hablemos sobre tu proyecto</h3>
+                    <p>Rellena el formulario o contacta con nosotros directamente. Te responderemos en menos de 24 horas.</p>
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icono">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <span>info@meridian-consultoria.com</span>
+                        </div>
+                    </div>
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icono">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Teléfono</strong>
+                            <span>+34 91 123 45 67</span>
+                        </div>
+                    </div>
+                    <div class="contacto-dato">
+                        <div class="contacto-dato-icono">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <strong>Dirección</strong>
+                            <span>Calle Gran Vía 42, Madrid</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="formulario" onsubmit="event.preventDefault(); alert('¡Gracias por contactarnos! Te responderemos en breve.');">
+                    <div class="form-grupo">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto o necesidad..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">MERIDIAN<span>.</span></div>
+            <p class="footer-copy">&copy; 2026 Consultoría Estratégica Meridian. Todos los derechos reservados.</p>
+            <div class="footer-redes">
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="Twitter">X</a>
+                <a href="#" aria-label="Facebook">fb</a>
+                <a href="#" aria-label="Instagram">ig</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
