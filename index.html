@@ -635,6 +635,73 @@
             color: var(--azul);
         }
 
+        /* ===== FAQ / PREGUNTAS FRECUENTES ===== */
+        .faq {
+            background: var(--gris-fondo);
+        }
+
+        .faq-lista {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--blanco);
+            border-radius: 12px;
+            box-shadow: var(--sombra);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .faq-item[open] {
+            border-top-color: var(--dorado);
+        }
+
+        .faq-item summary {
+            padding: 1.5rem 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--azul);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dorado);
+            flex-shrink: 0;
+        }
+
+        .faq-item[open] summary::after {
+            content: '\2212';
+        }
+
+        .faq-respuesta {
+            padding: 0 2rem 1.5rem;
+            color: var(--gris-texto);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .servicios-grid,
@@ -729,6 +796,15 @@
                 font-size: 1.8rem;
             }
 
+            .faq-item summary {
+                padding: 1.2rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-respuesta {
+                padding: 0 1.5rem 1.2rem;
+            }
+
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -751,6 +827,7 @@
                 <li><a href="#servicios" onclick="this.closest('.nav-links').classList.remove('active')">Servicios</a></li>
                 <li><a href="#nosotros" onclick="this.closest('.nav-links').classList.remove('active')">Nosotros</a></li>
                 <li><a href="#testimonios" onclick="this.closest('.nav-links').classList.remove('active')">Testimonios</a></li>
+                <li><a href="#faq" onclick="this.closest('.nav-links').classList.remove('active')">FAQ</a></li>
                 <li><a href="#contacto" onclick="this.closest('.nav-links').classList.remove('active')">Contacto</a></li>
             </ul>
         </div>
@@ -955,6 +1032,43 @@
                     </div>
                     <button type="submit" class="btn-enviar">Enviar mensaje</button>
                 </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="faq" class="seccion faq">
+        <div class="contenedor">
+            <div class="seccion-titulo">
+                <h2>Preguntas Frecuentes</h2>
+                <p>Resolvemos las dudas más comunes sobre nuestros servicios de consultoría</p>
+                <div class="linea-dorada"></div>
+            </div>
+            <div class="faq-lista">
+                <details class="faq-item">
+                    <summary>¿Cuánto dura un proyecto de consultoría típico?</summary>
+                    <div class="faq-respuesta">
+                        <p>La duración depende del alcance y la complejidad del proyecto. Un diagnóstico inicial suele completarse en 2 a 4 semanas, mientras que un proyecto integral de optimización de procesos o transformación digital puede extenderse de 3 a 9 meses. En nuestra primera reunión evaluamos tus necesidades y te proporcionamos un cronograma detallado y realista.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Con qué tipos de empresas trabajáis?</summary>
+                    <div class="faq-respuesta">
+                        <p>Colaboramos tanto con pymes como con grandes empresas de diversos sectores. Con más de 15 años de experiencia y más de 200 compañías transformadas, nuestro enfoque se adapta al tamaño y las particularidades de cada organización, siempre con soluciones personalizadas que generan resultados medibles.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Cómo medís los resultados de vuestro trabajo?</summary>
+                    <div class="faq-respuesta">
+                        <p>Antes de iniciar cualquier proyecto, definimos junto al cliente indicadores clave de rendimiento (KPIs) claros y cuantificables. Realizamos seguimientos periódicos y entregamos informes de progreso para que puedas ver el impacto real en tu negocio: reducción de costes, mejora de tiempos, aumento de productividad o crecimiento en facturación.</p>
+                    </div>
+                </details>
+                <details class="faq-item">
+                    <summary>¿Cuál es el primer paso para empezar a trabajar juntos?</summary>
+                    <div class="faq-respuesta">
+                        <p>El proceso comienza con un diagnóstico gratuito y sin compromiso. Puedes rellenar el formulario de contacto o llamarnos directamente. Agendaremos una reunión inicial para entender tu situación, identificar oportunidades de mejora y presentarte una propuesta a medida con objetivos, plazos y presupuesto claros.</p>
+                    </div>
+                </details>
             </div>
         </div>
     </section>
