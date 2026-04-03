@@ -328,9 +328,29 @@
         /* ===== SOBRE NOSOTROS ===== */
         .sobre-nosotros-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .sobre-foto {
+            width: 300px;
+            height: 300px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-claro) 100%);
+            display: flex;
             align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+
+        .sobre-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .sobre-texto h3 {
@@ -346,33 +366,29 @@
             font-size: 1rem;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+        .sobre-puntos {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--gris-fondo);
-            border-radius: 12px;
+        .sobre-puntos li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1rem;
+            color: var(--gris-texto);
         }
 
-        .stat-numero {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dorado);
-            display: block;
+        .sobre-puntos li .punto-icono {
+            font-size: 1.4rem;
             line-height: 1;
         }
 
-        .stat-texto {
-            font-size: 0.85rem;
-            color: var(--gris-texto);
-            margin-top: 0.5rem;
-            display: block;
+        .sobre-puntos li strong {
+            color: var(--azul);
         }
 
         /* ===== TESTIMONIOS ===== */
@@ -630,7 +646,13 @@
 
             .sobre-nosotros-content {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 2rem;
+                justify-items: center;
+            }
+
+            .sobre-foto {
+                width: 250px;
+                height: 250px;
             }
 
             .contacto-grid {
@@ -800,28 +822,32 @@
         <div class="contenedor">
             <div class="seccion-titulo">
                 <h2>Sobre Nosotros</h2>
-                <p>Experiencia, compromiso y resultados medibles</p>
+                <p>Conoce la historia detrás de Meridian</p>
                 <div class="linea-dorada"></div>
             </div>
             <div class="sobre-nosotros-content">
-                <div class="sobre-texto">
-                    <h3>Más de 15 años transformando empresas</h3>
-                    <p>En Consultoría Estratégica Meridian llevamos más de 15 años ayudando a empresas de todos los tamaños a optimizar sus operaciones y alcanzar su máximo potencial. Nuestro enfoque combina metodologías probadas con una visión innovadora adaptada a cada cliente.</p>
-                    <p>Contamos con un equipo de consultores senior con amplia experiencia en industria, que entiende los retos reales del día a día empresarial. No ofrecemos soluciones genéricas: diseñamos estrategias a medida que generan impacto tangible desde el primer mes.</p>
+                <div class="sobre-foto">
+                    <!-- Reemplazar con: <img src="tu-imagen.jpg" alt="Equipo Meridian"> -->
+                    300 × 300
                 </div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-numero">15+</span>
-                        <span class="stat-texto">Años de experiencia</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-numero">200+</span>
-                        <span class="stat-texto">Empresas transformadas</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-numero">98%</span>
-                        <span class="stat-texto">Clientes satisfechos</span>
-                    </div>
+                <div class="sobre-texto">
+                    <h3>Impulsamos negocios hacia lo digital desde 2010</h3>
+                    <p>Meridian nació con una misión clara: ayudar a las empresas a aprovechar el poder de la tecnología para crecer de forma sostenible. Desde nuestros inicios en Madrid, hemos acompañado a más de 200 organizaciones en su camino hacia la transformación digital, combinando estrategia de negocio con las herramientas más innovadoras del mercado.</p>
+                    <p>Nuestro equipo multidisciplinar reúne a consultores, analistas de datos y especialistas en tecnología que trabajan codo a codo con cada cliente. No creemos en soluciones genéricas: cada proyecto parte de un diagnóstico profundo para diseñar una estrategia que genere resultados reales y medibles desde el primer mes.</p>
+                    <ul class="sobre-puntos">
+                        <li>
+                            <span class="punto-icono">🚀</span>
+                            <span><strong>Innovación continua</strong> — Adoptamos las últimas tendencias digitales para mantenerte siempre un paso adelante.</span>
+                        </li>
+                        <li>
+                            <span class="punto-icono">🤝</span>
+                            <span><strong>Compromiso real</strong> — Nos involucramos como parte de tu equipo hasta alcanzar los objetivos pactados.</span>
+                        </li>
+                        <li>
+                            <span class="punto-icono">📊</span>
+                            <span><strong>Resultados medibles</strong> — Cada acción se respalda con datos y métricas claras de rendimiento.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
