@@ -581,42 +581,53 @@
         footer {
             background: var(--azul);
             color: rgba(255, 255, 255, 0.7);
-            padding: 3rem 2rem;
+            padding: 3rem 2rem 1.5rem;
         }
 
-        .footer-content {
+        .footer-grid {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2.5rem;
         }
 
-        .footer-logo {
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--blanco);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-logo-text {
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             color: var(--blanco);
+            margin-bottom: 0.8rem;
         }
 
-        .footer-logo span {
+        .footer-logo-text span {
             color: var(--dorado);
         }
 
-        .footer-copy {
-            font-size: 0.85rem;
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.7;
         }
 
         .footer-redes {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
+            margin-top: 1rem;
         }
 
         .footer-redes a {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
@@ -624,8 +635,7 @@
             justify-content: center;
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s;
         }
 
@@ -633,6 +643,47 @@
             background: var(--dorado);
             border-color: var(--dorado);
             color: var(--azul);
+        }
+
+        .footer-sitemap {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-sitemap li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-sitemap a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-sitemap a:hover {
+            color: var(--dorado);
+        }
+
+        .footer-contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-contacto-item .icon {
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
         }
 
         /* ===== FAQ / PREGUNTAS FRECUENTES ===== */
@@ -805,9 +856,17 @@
                 padding: 0 1.5rem 1.2rem;
             }
 
-            .footer-content {
-                flex-direction: column;
+            .footer-grid {
+                grid-template-columns: 1fr;
                 text-align: center;
+            }
+
+            .footer-redes {
+                justify-content: center;
+            }
+
+            .footer-sitemap {
+                columns: 2;
             }
         }
     </style>
@@ -1075,15 +1134,41 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">MERIDIAN<span>.</span></div>
-            <p class="footer-copy">&copy; 2026 Consultoría Estratégica Meridian. Todos los derechos reservados.</p>
-            <div class="footer-redes">
-                <a href="#" aria-label="LinkedIn">in</a>
-                <a href="#" aria-label="Twitter">X</a>
-                <a href="#" aria-label="Facebook">fb</a>
-                <a href="#" aria-label="Instagram">ig</a>
+        <div class="footer-grid">
+            <!-- Columna 1: Marca y redes -->
+            <div class="footer-col">
+                <div class="footer-logo-text">MERIDIAN<span>.</span></div>
+                <p>Transformamos empresas con estrategia, innovación y resultados medibles.</p>
+                <div class="footer-redes">
+                    <a href="#" aria-label="LinkedIn">💼</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Facebook">👥</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">🎬</a>
+                </div>
             </div>
+            <!-- Columna 2: Mapa del sitio -->
+            <div class="footer-col">
+                <h4>Mapa del sitio</h4>
+                <ul class="footer-sitemap">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <!-- Columna 3: Contacto -->
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <div class="footer-contacto-item"><span class="icon">📍</span> Buenos Aires, Argentina</div>
+                <div class="footer-contacto-item"><span class="icon">📧</span> info@meridian.com</div>
+                <div class="footer-contacto-item"><span class="icon">📞</span> +54 11 1234-5678</div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Consultoría Estratégica Meridian. Todos los derechos reservados.
         </div>
     </footer>
 
